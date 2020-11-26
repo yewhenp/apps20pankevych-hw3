@@ -1,13 +1,14 @@
 package ua.edu.ucu.smartarr;
 
 // Base array for decorators
-public class BaseArray implements SmartArray{
+public class BaseArray implements SmartArray {
     private final Object[] data;
     private final int size;
 
     public BaseArray(Object[] data) {
-        this.data = data;
         this.size = data.length;
+        this.data = new Object[size];
+        System.arraycopy(data, 0, this.data, 0, size);
     }
 
 

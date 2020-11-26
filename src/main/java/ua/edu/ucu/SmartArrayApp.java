@@ -1,16 +1,18 @@
 package ua.edu.ucu;
 
-import java.util.Arrays;
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
 import ua.edu.ucu.smartarr.*;
 
+import java.util.Arrays;
+
 public class SmartArrayApp {
+    private static final int POINTS = 4;
 
     public static Integer[]
-            filterPositiveIntegersSortAndMultiplyBy2(Integer[] integers) {
-                
+    filterPositiveIntegersSortAndMultiplyBy2(Integer[] integers) {
+
         MyPredicate pr = new MyPredicate() {
             @Override
             public boolean test(Object t) {
@@ -20,8 +22,8 @@ public class SmartArrayApp {
 
         MyComparator cmp = new MyComparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return ((Integer) o1) - ((Integer) o2);
+            public int compare(Object first, Object second) {
+                return ((Integer) first) - ((Integer) second);
             }
         };
 
@@ -50,7 +52,7 @@ public class SmartArrayApp {
     }
 
     public static String[]
-            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
+    findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
 
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
@@ -59,21 +61,24 @@ public class SmartArrayApp {
         MyPredicate pr = new MyPredicate() {
             @Override
             public boolean test(Object t) {
-                return (((Student) t).getYear() == 2) && (((Student) t).getGPA() >= 4);
+                return (((Student) t).getYear() == 2) &&
+                        (((Student) t).getGPA() >= POINTS);
             }
         };
 
         MyComparator cmp = new MyComparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return (((Student) o1).getSurname()).compareTo((((Student) o2).getSurname()));
+            public int compare(Object first, Object second) {
+                return (((Student) first).getSurname()).compareTo(
+                        (((Student) second).getSurname()));
             }
         };
 
         MyFunction func = new MyFunction() {
             @Override
             public Object apply(Object t) {
-                return ((Student) t).getSurname() + " " + ((Student) t).getName();
+                return ((Student) t).getSurname() +
+                        " " + ((Student) t).getName();
             }
         };
 

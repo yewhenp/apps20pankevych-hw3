@@ -13,8 +13,8 @@ public class MapDecorator extends SmartArrayDecorator {
 
     @Override
     public Object[] toArray() {
-        Object[] base = smartArray.toArray();
-        for (int i = 0; i < smartArray.size(); i++){
+        Object[] base = getSmartArray().toArray();
+        for (int i = 0; i < getSmartArray().size(); i++) {
             base[i] = mf.apply(base[i]);
         }
         return base;

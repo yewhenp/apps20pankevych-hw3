@@ -13,12 +13,12 @@ public class FilterDecorator extends SmartArrayDecorator {
 
     @Override
     public Object[] toArray() {
-        Object[] base = smartArray.toArray();
-        Object[] result = new Object[smartArray.size()];
+        Object[] base = getSmartArray().toArray();
+        Object[] result = new Object[getSmartArray().size()];
         int j = 0;
 
-        for (int i = 0; i < smartArray.size(); i++){
-            if (pr.test(base[i])){
+        for (int i = 0; i < getSmartArray().size(); i++) {
+            if (pr.test(base[i])) {
                 result[j] = base[i];
                 j++;
             }
