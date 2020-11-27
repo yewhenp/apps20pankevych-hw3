@@ -3,7 +3,13 @@ package ua.edu.ucu;
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
-import ua.edu.ucu.smartarr.*;
+import ua.edu.ucu.smartarr.BaseArray;
+import ua.edu.ucu.smartarr.FilterDecorator;
+import ua.edu.ucu.smartarr.SmartArray;
+import ua.edu.ucu.smartarr.SortDecorator;
+import ua.edu.ucu.smartarr.MapDecorator;
+import ua.edu.ucu.smartarr.DistinctDecorator;
+
 
 import java.util.Arrays;
 
@@ -61,8 +67,8 @@ public class SmartArrayApp {
         MyPredicate pr = new MyPredicate() {
             @Override
             public boolean test(Object t) {
-                return (((Student) t).getYear() == 2) &&
-                        (((Student) t).getGPA() >= POINTS);
+                return (((Student) t).getYear() == 2)
+                        && (((Student) t).getGPA() >= POINTS);
             }
         };
 
@@ -77,8 +83,8 @@ public class SmartArrayApp {
         MyFunction func = new MyFunction() {
             @Override
             public Object apply(Object t) {
-                return ((Student) t).getSurname() +
-                        " " + ((Student) t).getName();
+                return ((Student) t).getSurname()
+                        + " " + ((Student) t).getName();
             }
         };
 

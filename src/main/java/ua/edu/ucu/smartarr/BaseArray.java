@@ -1,5 +1,7 @@
 package ua.edu.ucu.smartarr;
 
+import java.util.ArrayList;
+
 // Base array for decorators
 public class BaseArray implements SmartArray {
     private final Object[] data;
@@ -21,7 +23,8 @@ public class BaseArray implements SmartArray {
 
     @Override
     public String operationDescription() {
-        return "Base Array";
+        String[] arr = this.getClass().getName().split("\\.");
+        return arr[arr.length - 1];
     }
 
     @Override

@@ -10,7 +10,8 @@ abstract class SmartArrayDecorator implements SmartArray {
 
     @Override
     public String operationDescription() {
-        return "Used " + getClass().getName();
+        String[] arr = this.getClass().getName().split("\\.");
+        return arr[arr.length - 1];
     }
 
     @Override
@@ -18,7 +19,7 @@ abstract class SmartArrayDecorator implements SmartArray {
         return smartArray.size();
     }
 
-    public SmartArray getSmartArray(){
+    public SmartArray getSmartArray() {
         return smartArray;
     }
 }
