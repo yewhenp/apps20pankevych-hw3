@@ -35,18 +35,24 @@ class Student {
 
     @Override
     public String toString() {
-        return "Student{name=" + name + ", surname=" + surname + ", " + "GPA=" + GPA + ", year=" + year + '}';
+        return "Student{name=" + name + ", surname="
+                + surname + ", " + "GPA=" + GPA + ", year="
+                + year + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
-        return Double.compare(student.GPA, GPA) == 0 &&
-                year == student.year &&
-                name.equals(student.name) &&
-                surname.equals(student.surname);
+        return Double.compare(student.GPA, GPA) == 0
+                && year == student.year
+                && name.equals(student.name)
+                && surname.equals(student.surname);
     }
 
     @Override

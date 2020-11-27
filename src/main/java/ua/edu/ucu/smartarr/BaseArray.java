@@ -1,7 +1,5 @@
 package ua.edu.ucu.smartarr;
 
-import java.util.ArrayList;
-
 // Base array for decorators
 public class BaseArray implements SmartArray {
     private final Object[] data;

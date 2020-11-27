@@ -98,9 +98,11 @@ public class SmartArrayAppTest {
     public void testOther(){
         SmartArrayApp app = new SmartArrayApp();
         Student stud1 = new Student("Ivar", "Grimstad", 3.9, 2);
-        Student stud2 = new Student("Ivar", "Grimstad", 4.9, 2);
+        Student stud2 = new Student("Ivar", "Grimstad", 3.84, 2);
         Student stud3 = new Student("Ivar1", "Grimstad", 3.9, 2);
         Student stud4 = new Student("Ivar", "Grimstad1", 3.9, 2);
+        Student stud5 = new Student("Ivar", "Grimstad", 3.9, 3);
+        Student stud6 = new Student("Ivar", "Grimstad", 3.9, 2);
         assertEquals(stud1.toString(), "Student{name=Ivar, surname=Grimstad, GPA=3.9, year=2}");
 
         assertEquals(stud1, stud1);
@@ -109,5 +111,7 @@ public class SmartArrayAppTest {
         assertNotEquals(stud1, stud2);
         assertNotEquals(stud1, stud3);
         assertNotEquals(stud1, stud4);
+        assertNotEquals(stud1, stud5);
+        assertEquals(stud1, stud6);
     }
 }
